@@ -8,19 +8,20 @@
         {{#each r.education.history}}
         <li class="card card-nested">
           <div class="content">
-            <p class="clear-margin relative"><strong>{{area}}{{title}}{{#if studyType}} ({{studyType}}){{/if}},&nbsp;</strong><a href="{{url}}" target="_blank">{{institution}}</a></p>
+            <p class="clear-margin relative"><strong>{{{area}}}{{{title}}}{{#if studyType}}
+                ({{{studyType}}}){{/if}},&nbsp;</strong><a href="{{url}}" target="_blank">{{{institution}}}</a></p>
             {{> date}}
             <div class="space-top labels">
               {{#each curriculum}}
-              <span class="label label-keyword">{{this}}</span>
+              <span class="label label-keyword">{{{this}}}</span>
               {{/each}}
             </div>
             {{> highlights}}
           </div>
         </li>
         {{/each}}
-        </ul>
-      </div>
+      </ul>
     </div>
   </div>
+</div>
 {{/if}}

@@ -7,12 +7,12 @@
       <ul class="list-unstyled">
         {{#each r.interests}}
         <li class="card card-nested">
-          <p><strong>{{name}}</strong></p>
+          <p><strong>{{{name}}}</strong></p>
           {{{summary}}}
           <div class="space-top labels">
             {{#each keywords}}
             <span class="label label-keyword">{{this}}</span>
-          {{/each}}
+            {{/each}}
           </div>
         </li>
         {{/each}}
