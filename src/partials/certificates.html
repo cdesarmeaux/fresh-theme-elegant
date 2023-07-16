@@ -1,0 +1,36 @@
+{{#if r.certifications}}
+<details id="certifications" class="detail" open>
+  <summary>
+    <div class="icon"><i class="fs-lg fa fa-certificate"></i><span class="mobile-title">Certifications</span></div>
+    <div class="info">
+        <h4 class="title text-uppercase">Certifications</h4></hr>
+    </div>
+  </summary>
+  <div class="info certifications">
+    <hr>
+    {{#each r.certifications}}
+    <span>
+      {{#each certificates}}
+        {{#if logo}}
+          <img class="media-object logo"
+            src="images/{{logo}}"
+            alt="{{name}}{{#level}} - {{.}}{{/level}}"
+            title="{{name}}{{#level}} - {{.}}{{/level}}" />
+        {{/if}}
+      {{/each}}
+    </span>
+    {{/each}}
+  </div>
+  <div class="content certifications">
+    <ul>
+      {{#each r.certifications}}
+        {{#each certificates}}
+          {{#unless logo}}
+            <li>{{name}}{{#level}} - ({{.}}){{/level}}</li>
+          {{/unless}}
+        {{/each}}
+      {{/each}}
+    </ul>
+  </div>
+</details>
+{{/if}}

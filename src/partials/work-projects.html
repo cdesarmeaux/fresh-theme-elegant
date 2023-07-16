@@ -1,0 +1,28 @@
+{{#if projects}}
+<div id="work-projects" class="detail">
+  <div class="info work-projects-bg">
+    <h5 class="title text-uppercase">Projects</h5>
+    <ul class="list-unstyled">
+      {{#each projects}}
+      <li class="card card-nested clearfix">
+        <div class="content">
+          <details tags="{{#each keywords}}{{this}} {{/each}}{{#each technologies}}{{this}} {{/each}}">
+            <summary {{^description}}class="empty" {{/description}}>
+              {{#if customer}}<strong>{{customer}}</strong>,&nbsp;{{/if}}{{{name}}}
+              {{#if url}}<p><a href="{{url}}" target="_blank">{{url}}</a></p>{{/if}}
+              {{#if summary}}{{{summary}}}{{/if}}
+              <small>
+                {{#if keywords}}Keywords: {{#each keywords}} {{this}},{{/each}}</br>{{/if}}
+                {{#if technologies}}Technologies: {{#each technologies}} {{this}},{{/each}}{{/if}}
+              </small>
+            </summary>
+            {{#if description}}<br>
+            <p class="clear-margin relative">{{{description}}}</p>{{/if}}
+          </details>
+        </div>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+</div>
+{{/if}}

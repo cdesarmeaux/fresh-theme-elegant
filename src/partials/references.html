@@ -1,8 +1,10 @@
 {{#if r.references}}
-<div id="references" class="detail">
+<details id="references" class="detail" open>
+  <summary>
   <div class="icon"><i class="fs-lg fa fa-thumbs-up"></i><span class="mobile-title">References</span></div>
+  <div class="info"><h4 class="title text-uppercase">References</h4>
+  </summary>
   <div class="info">
-    <h4 class="title text-uppercase">References</h4>
     <div class="content">
       <ul class="list-unstyled clear-margin">
         {{#each r.references}}
@@ -19,5 +21,5 @@
       </ul>
     </div>
   </div>
-</div>
+</etails>
 {{/if}}

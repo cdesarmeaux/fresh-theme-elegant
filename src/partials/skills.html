@@ -1,31 +1,23 @@
-<div id="skills" class="detail">
-  <div class="icon"><i class="fs-lg fa fa-cogs"></i><span class="mobile-title">Skills</span></div>
+<details id="skills" class="detail" open>
+  <summary>
+    <div class="icon"><i class="fs-lg fa fa-cogs"></i><span class="mobile-title">Skills</span></div>
+    <div class="info">
+      <h4 class="title text-uppercase">Skills</h4>
+    </div>
+  </summary>
   <div class="info">
-    <h4 class="title text-uppercase">Skills</h4>
     <div class="content">
       <ul class="list-unstyled">
         {{#each r.skills.sets}}
         <li class="card card-nested card-skills">
-          <div rel="tooltip" title="{{level}}" data-placement="left" class="skill-level">
-            <div class="skill-progress {{toLower level}}"></div>
-          </div>
           <div class="skill-info"><strong>{{name}}</strong>
             <div class="space-top labels">
               {{#each skills}}
-              <span class="label label-keyword">{{this}}</span>
+              <span rel="tooltip" title="{{summary}}" class="btn label label-keyword" skill="{{name}}"
+                onclick="show_keyword('{{name}}')">
+                {{name}} ({{level}})
+              </span>
               {{/each}}
-            </div>
-          </div>
-        </li>
-        {{/each}}
-        {{#each r.skills.list}}
-        <li class="card card-nested card-skills">
-          <div rel="tooltip" title="{{level}}" data-placement="left" class="skill-level">
-            <div class="skill-progress {{toLower level}}"></div>
-          </div>
-          <div class="skill-info"><strong>{{name}} ({{years}} years)</strong>
-            <div class="space-top">
-              <p>{{summary}}</p>
             </div>
           </div>
         </li>
@@ -33,4 +25,4 @@
       </ul>
     </div>
   </div>
-</div>
+</details>

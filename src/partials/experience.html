@@ -1,21 +1,32 @@
 {{#if r.employment}}
-<div id="work-experience" class="detail">
-  <div class="icon"><i class="fs-lg fa fa-building"></i><span class="mobile-title">Work Experience</span></div>
+<details id="work-experience" class="detail" onclick="clear_highlight()" open>
+  <summary>
+    <div class="icon"><i class="fs-lg fa fa-building"></i><span class="mobile-title">Work Experience</span></div>
+    <div class="info">
+      <h4 class="title text-uppercase">Work Experience</h4>
+    </div>
+  </summary>
   <div class="info">
-    <h4 class="title text-uppercase">Work Experience</h4>
-    <p>{{r.employment.summary}}</p>
+    <p>{{{r.employment.summary}}}</p>
     <ul class="list-unstyled">
       {{#each r.employment.history}}
       <li class="card card-nested clearfix">
         <div class="content">
-          <p class="clear-margin relative"><strong>{{{position}}}</strong>,&nbsp;<a href="{{url}}" target="_blank">{{employer}}</a></p>
-          {{> date}}
-          {{{summary}}}
-          {{> highlights}}
+          <details class="employer" tags="{{#each keywords}}{{this}} {{/each}}{{#each technologies}}{{this}} {{/each}}">
+            <summary>
+              <strong>{{{position}}}</strong>,&nbsp;<a href="{{url}}" target="_blank">{{employer}}</a>
+              </br>{{> date}}
+              {{{summary}}}
+              {{> highlights}}
+            </summary>
+            {{#if description}}<br>
+            <p class="clear-margin relative">{{{description}}}</p>{{/if}}
+            {{> work-projects}}
+          </details>
         </div>
       </li>
       {{/each}}
     </ul>
   </div>
-</div>
+</details>
 {{/if}}

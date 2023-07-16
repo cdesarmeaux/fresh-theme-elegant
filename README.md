@@ -10,6 +10,7 @@ I'm open to suggestion concerning the frontend code and the UI/UX, see [Contribu
 The sectionss currently available are:
 * Profile (with name, photo, label, address, phone, email, website, languages and social links)
 * About (with you info.brief)
+* Certificates (cutom addition, should probably be awards)
 * Work Experience (employment)
 * Skills
 * Education

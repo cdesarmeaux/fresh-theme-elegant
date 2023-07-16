@@ -1,16 +1,16 @@
-<section class="col-md-3 card-wrapper profile-card-wrapper affix">
-    <div class="card profile-card"><div class="profile-pic-container">
+<section id=profile class="col-md-3 card-wrapper profile-card-wrapper affix">
+    <div class="card profile-card"><span class="profile-pic-container">
       <div class="profile-pic">
         {{#if r.info.image}}
-        <img data-src="holder.js/100x100" alt="{{{r.name}}}" src="{{{r.info.image}}}" itemprop="image" class="media-object img-circle center-block"/>
+        <img data-src="holder.js/100x100" alt="{{{r.name}}}" src="{{{r.info.image}}}" itemprop="image" class="media-object center-block"/>
         {{/if}}
       </div>
-      <div class="name-and-profession text-center"><h3 itemprop="name"><b>{{{r.name}}}</b></h3><h5 itemprop="jobTitle" class="text-muted">{{r.info.label}}</h5></div></div>
+      <div class="name-and-profession text-center"><h3 itemprop="name"><b>{{{r.name}}}</b></h3><h5 itemprop="jobTitle" class="text-muted">{{{r.info.label}}}</h5></div></span>
         <hr/>
         <div class="contact-details clearfix">
             {{#if r.location.city}}<div class="detail"><span class="icon"><i class="icon fs-lg fa fa-map-marker"></i></span><span class="info">{{#if r.location.address}}{{r.location.address}}, {{/if}}{{r.location.city}}{{#if r.location.region}}, {{r.location.region}}{{/if}}{{#if r.location.country}}, {{r.location.country}}{{/if}}</span></div>{{/if}}
-            <div class="detail"><span class="icon"><i class="icon fs-lg fa fa-phone"></i></span><span itemprop="telephone" class="info">{{r.contact.phone}}</span></div>
-            <div class="detail"><span class="icon"><i class="icon fs-lg fa fa-envelope-o"></i></span><span class="info"><a href="mailto:{{{r.contact.email}}}" itemprop="email" class="link-disguise">{{{r.contact.email}}}</a></span>
+           {{#if r.contact.phone}}<div class="detail"><span class="icon"><i class="icon fs-lg fa fa-phone"></i></span><span itemprop="telephone" class="info">{{r.contact.phone}}</span></div>{{/if}}
+            <div class="detail"><span class="icon"><i class="icon fs-lg fa fa-envelope-o"></i></span><span class="info" itemprop="email">{{{r.contact.email}}}</span>
             </div>
             <div class="detail"><span class="icon"><i class="icon fs-lg fa fa-link"></i></span><span class="info">{{{r.contact.website}}}</span></div>
             <div class="detail"><span title="Languages I speak" class="icon"><i class="icon fs-lg fa fa-language"></i></span><span class="info">{{#each r.languages}}{{language}}{{#unless @last}}, {{/unless}}{{/each}}</span></div>
@@ -32,5 +32,42 @@
               {{/each}}
             </div>
         </div>
+        <hr/>
+        {{#if r.settings.links}}
+        <div class="text-center">
+        <div class=info"><u>Other formats</u></div>
+          {{#each r.settings.links.main}}
+            <a href="{{url}}" target="_blank" >{{name}}</a>
+          {{/each}}
+          {{#if r.settings.links.extra}}
+          <details ontoggle="toggle_pin_menu()">
+            <summary>More</summary>
+            {{#each r.settings.links.extra}}
+              {{#group}}{{.}}:{{/group}}
+              {{#each links}}
+                {{#if name}}
+                  <a href="{{url}}" target="_blank" >{{name}}</a>
+                {{else}}
+                  <a href="{{.}}.html" target="_blank" >{{.}}</a>
+                {{/if}}
+              {{/each}}<br>
+            {{/each}}
+          </details>
+          {{/if}}
+        </div>
+        <hr/>
+        {{/if}}
+        <div id=tag-list class="tag-list text-center">
+          <p><a onclick="toggle_details(true)">Expand</a> / <a onclick="toggle_details(false)">Collapse</a></p>
+          {{#if r.tags}}
+          <details ontoggle="toggle_pin_menu()">
+            <summary>Keywords</summary>
+            {{#each r.tags}}
+            <span class="label label-keyword btn" skill="{{this}}" onclick="show_keyword('{{this}}')">{{this}}</span>
+            {{/each}}
+          </details>
+          {{/if}}
+        </div>
+        <hr/>
     </div>
 </section>

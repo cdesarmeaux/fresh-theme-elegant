@@ -1,13 +1,17 @@
 {{#if r.interests}}
-<div id="interests" class="detail">
-  <div class="icon"><i class="fs-lg fa fa-heart"></i><span class="mobile-title">Interests</span></div>
+<details id="interests" class="detail" open>
+  <summary>
+    <div class="icon"><i class="fs-lg fa fa-heart"></i><span class="mobile-title">Interests</span></div>
+    <div class="info">
+        <h4 class="title text-uppercase">Interests</h4>
+    </div>
+  </summary>
   <div class="info">
-    <h4 class="title text-uppercase">Interests</h4>
     <div class="content">
       <ul class="list-unstyled">
         {{#each r.interests}}
         <li class="card card-nested">
-          <p><strong>{{name}}</strong></p>
+          <p><strong>{{{name}}}</strong></p>
           {{{summary}}}
           <div class="space-top labels">
             {{#each keywords}}
@@ -19,5 +23,5 @@
       </ul>
     </div>
   </div>
-</div>
+</details>
 {{/if}}

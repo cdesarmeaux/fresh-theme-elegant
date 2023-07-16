@@ -1,26 +1,31 @@
 {{#if r.education}}
-<div id="education" class="detail">
-  <div class="icon"><i class="fs-lg fa fa-graduation-cap"></i><span class="mobile-title">Education</span></div>
+<details id="education" class="detail" onclick="clear_highlight()" open>
+  <summary>
+    <div class="icon"><i class="fs-lg fa fa-graduation-cap"></i><span class="mobile-title">Education</span></div>
+    <div class="info">
+      <h4 class="title text-uppercase">Education</h4>
+    </div>
+  </summary>
   <div class="info">
-    <h4 class="title text-uppercase">Education</h4>
     <div class="content">
       <ul class="list-unstyled">
         {{#each r.education.history}}
         <li class="card card-nested">
           <div class="content">
-            <p class="clear-margin relative"><strong>{{area}}{{title}}{{#if studyType}} ({{studyType}}){{/if}},&nbsp;</strong><a href="{{url}}" target="_blank">{{institution}}</a></p>
+            <p class="clear-margin relative"><strong>{{{area}}}{{{title}}}{{#if studyType}} ({{{studyType}}}){{/if}},&nbsp;</strong><a href="{{url}}" target="_blank">{{{institution}}}</a></p>
             {{> date}}
+            <p class="clear-margin relative">{{#if grade}}<small>Grade:</small> <i>{{grade}}</i>{{/if}}</p>
             <div class="space-top labels">
               {{#each curriculum}}
-              <span class="label label-keyword">{{this}}</span>
+              <span class="label label-keyword">{{{this}}}</span>
               {{/each}}
             </div>
             {{> highlights}}
           </div>
         </li>
         {{/each}}
-        </ul>
-      </div>
+      </ul>
     </div>
   </div>
+</details>
 {{/if}}

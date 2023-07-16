@@ -1,8 +1,10 @@
 {{#if r.service}}
-<div id="volunteer-work" class="detail">
-  <div class="icon"><i class="fs-lg fa fa-child"></i><span class="mobile-title">Volunteer Work</span></div>
+<details id="volunteer-work" class="detail" onclick="clear_highlight()" open>
+  <summary>
+    <div class="icon"><i class="fs-lg fa fa-child"></i><span class="mobile-title">Volunteer Work</span></div>
+    <div class="info"><h4 class="title text-uppercase">Volunteer Work</h4></div>
+  </summary>
   <div class="info">
-    <h4 class="title text-uppercase">Volunteer Work</h4>
     <div class="content">
       <ul class="list-unstyled">
         {{#each r.service.history}}
@@ -18,5 +20,5 @@
       </ul>
     </div>
   </div>
-</div>
+</details>
 {{/if}}
